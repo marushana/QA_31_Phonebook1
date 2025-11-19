@@ -48,7 +48,6 @@ public class HelperUser extends HelperBase{
 
 
 
-    //kffif
     //*[text() = 'LOGIN']
     //input[@placeholder = 'Email']
     //input[@placeholder = 'Password']
