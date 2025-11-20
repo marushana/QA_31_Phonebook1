@@ -1,20 +1,42 @@
 package tests;
 
-import manager.ApplicationManager;
-import manager.HelperUser;
-import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTests extends TestBase{
+public class LoginTests extends TestBase {
+
+    @BeforeMethod
+    public void preCondition() {
+        //if SignOut button present --->logout
+        if (app.getHelperUser().isLogged()) {
+            app.getHelperUser().logout();
+        }
+    }
 
     @Test
-    public void loginSuccess(){
+    public void loginSuccess() {
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationForm("marushana@yandex.ru", "Pokrov1304!");
         app.getHelperUser().submitLogin();
 
-        //Assert
-
+//        Assert.assertEquals();
+//        Assert.assertNotEquals();
+//        Assert.assertTrue();
+//        Assert.assertFalse();
+        Assert.assertTrue(app.getHelperUser().isLogged());
     }
 
+    @Test
+    public void loginSuccessModel() {
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationForm("marushana@yandex.ru", "Pokrov1304!");
+        app.getHelperUser().submitLogin();
+
+//        Assert.assertEquals();
+//        Assert.assertNotEquals();
+//        Assert.assertTrue();
+//        Assert.assertFalse();
+        Assert.assertTrue(app.getHelperUser().isLogged());
+    }
 }
