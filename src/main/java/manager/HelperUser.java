@@ -1,5 +1,6 @@
 package manager;
 
+import models.User;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,21 @@ public class HelperUser extends HelperBase{
     public void fillLoginRegistrationForm(String email, String password){
         type(By.xpath("//input[@placeholder = 'Email']"), email);
         type(By.xpath("//input[@placeholder = 'Password']"), password);
+//        WebElement inputEmail = wd.findElement(By.xpath("//input[@placeholder = 'Email']"));
+//        inputEmail.click();
+//        inputEmail.clear();
+//        inputEmail.sendKeys(login);
+
+//
+//        WebElement inputPassword = wd.findElement(By.xpath("//input[@placeholder = 'Password']"));
+//        inputPassword.click();
+//        inputPassword.clear();
+//        inputPassword.sendKeys(password);
+    }
+
+    public void fillLoginRegistrationForm(User user){
+        type(By.xpath("//input[@placeholder = 'Email']"), user.getEmail());
+        type(By.xpath("//input[@placeholder = 'Password']"), user.getPassword());
 //        WebElement inputEmail = wd.findElement(By.xpath("//input[@placeholder = 'Email']"));
 //        inputEmail.click();
 //        inputEmail.clear();
@@ -74,9 +90,14 @@ public class HelperUser extends HelperBase{
         return false;
     }
 
+    public void submitRegistration() {
+        click(By.xpath("//button[text() = 'Registration']"));
+    }
 
-    //*[text() = 'LOGIN']
-    //input[@placeholder = 'Email']
-    //input[@placeholder = 'Password']
-    //*[text() = 'Login']
+
+    public boolean isNoContactsHereDisplayed() {
+        WebDriverWait wait = new WebDriverWait(wd, Duration.ofSeconds(5));
+        return wait.until(ExpectedConditions.textToBePresentInElement
+                (wd.findElement(By.cssSelector(".contact-page_message__2qafk>h1")), "No Contacts here!"));
+    }
 }
