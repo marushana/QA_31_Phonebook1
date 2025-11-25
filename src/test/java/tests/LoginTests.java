@@ -46,6 +46,8 @@ public class LoginTests extends TestBase {
         app.getHelperUser().fillLoginRegistrationForm("marushanayandex.com", "Pokrov1304!");
         app.getHelperUser().submitLogin();
         //Assert.assertFalse(app.getHelperUser().isLogged());
+        Assert.assertTrue(app.getHelperUser().isAlertPresent("Wrong email or password"));
+
 
     }
 
@@ -54,7 +56,8 @@ public class LoginTests extends TestBase {
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationForm("marushana@yandex.ru", "pokrov1304");
         app.getHelperUser().submitLogin();
-        Assert.assertFalse(app.getHelperUser().isLogged());
+        Assert.assertTrue(app.getHelperUser().isAlertPresent("Wrong email or password"));
+
     }
 
     @Test
@@ -62,6 +65,7 @@ public class LoginTests extends TestBase {
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationForm("ushana@yandex.ru", "pokrov1304");
         app.getHelperUser().submitLogin();
-        Assert.assertFalse(app.getHelperUser().isLogged());
+        Assert.assertTrue(app.getHelperUser().isAlertPresent("Wrong email or password"));
+
     }
 }
