@@ -12,9 +12,9 @@ public class TestBase {
         app.init();
     }
 
-    @AfterSuite
-    public void tearDown(){
-        app.stop();
-    }
+//    @AfterSuite
+//    public void tearDown(){
+//        app.stop();
+//    }
 
 }
