@@ -26,7 +26,8 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact1);
-        app.getHelperContact().pause(12000);
+        //app.getHelperContact().pause(12000);
+        app.getHelperContact().getScreen("src/test/screenshots/screen-"+i+".png");
         app.getHelperContact().submitContactForm();
         Assert.assertTrue(app.getHelperContact().isNewContactDisplayed(contact1));
         Assert.assertTrue(app.getHelperContact().isContactAddedByName(contact1.getName()));
@@ -41,7 +42,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact1);
-        app.getHelperContact().pause(12000);
+        //app.getHelperContact().pause(12000);
         app.getHelperContact().submitContactForm();
         Assert.assertTrue(app.getHelperContact().isNewContactDisplayed(contact1));
         Assert.assertTrue(app.getHelperContact().isContactAddedByName(contact1.getName()));
@@ -55,7 +56,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact1);
-        app.getHelperContact().pause(12000);
+        //app.getHelperContact().pause(12000);
         app.getHelperContact().submitContactForm();
         Assert.assertTrue(app.getHelperContact().isAddNewContactStillDisplayed());
     }
@@ -65,7 +66,7 @@ public class AddNewContactTests extends TestBase{
         Contact contact1 = Contact.builder().name("Marina").lastName("").phone("0538535553").email("marusha@list.ru").address("Haifa, Alexander Yannay, 28, 2").description("Wrong Last Name").build();
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact1);
-        app.getHelperContact().pause(12000);
+        //app.getHelperContact().pause(12000);
         app.getHelperContact().submitContactForm();
         Assert.assertTrue(app.getHelperContact().isAddNewContactStillDisplayed());
 
@@ -75,7 +76,7 @@ public class AddNewContactTests extends TestBase{
         Contact contact1 = Contact.builder().name("Marina").lastName("Siachin").phone("0538535553").email("marushalist.ru").address("Haifa, Alexander Yannay, 28, 2").description("Email").build();
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact1);
-        app.getHelperContact().pause(12000);
+        //app.getHelperContact().pause(12000);
         app.getHelperContact().submitContactForm();
         Assert.assertTrue(app.getHelperContact().isAddNewContactStillDisplayed());
         Assert.assertTrue(app.getHelperUser().isAlertPresent("Email not valid:"));
@@ -87,7 +88,7 @@ public class AddNewContactTests extends TestBase{
         Contact contact1 = Contact.builder().name("Marina").lastName("Siachin").phone("").email("marusha@list.ru").address("Haifa, Alexander Yannay, 28, 2").description("Wrong Phone").build();
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact1);
-        app.getHelperContact().pause(12000);
+        //app.getHelperContact().pause(12000);
         app.getHelperContact().submitContactForm();
         Assert.assertTrue(app.getHelperContact().isAddNewContactStillDisplayed());
         Assert.assertTrue(app.getHelperUser().isAlertPresent(" Phone not valid: Phone number must contain only digits! And length min 10, max 15!"));
@@ -98,7 +99,7 @@ public class AddNewContactTests extends TestBase{
         Contact contact1 = Contact.builder().name("Marina").lastName("Siachin").phone("0538535523").email("marusha@list.ru").address("").description("Wrong Address").build();
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact1);
-        app.getHelperContact().pause(12000);
+        //app.getHelperContact().pause(12000);
         app.getHelperContact().submitContactForm();
         Assert.assertTrue(app.getHelperContact().isAddNewContactStillDisplayed());
 

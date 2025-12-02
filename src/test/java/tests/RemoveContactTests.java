@@ -16,8 +16,6 @@ public class RemoveContactTests extends TestBase{
 
         //app.getHelperContact().provideContacts();//if contact list less then 3 >>add 3
         }
-    }
-
     @Test
     public void removeFirstContact(){
         //assert size contact list less by one
